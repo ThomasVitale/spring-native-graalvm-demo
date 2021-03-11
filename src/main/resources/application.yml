@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  netty:
+    connection-timeout: 5s
+  shutdown: graceful
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  r2dbc:
+    username: admin
+    password: admin
+    url: r2dbc:postgresql://localhost:5432/db_native
+    pool:
+      max-create-connection-time: 5s
+      initial-size: 5
+      max-size: 10
