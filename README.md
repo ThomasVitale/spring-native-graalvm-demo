@@ -16,17 +16,6 @@ for more information about the project.
 
 ## How to run it
 
-Run PostgreSQL as a Docker container:
-
-```bash
-docker run --name db-native \
-  -e POSTGRES_USER=admin \
-  -e POSTGRES_PASSWORD=admin \
-  -e POSTGRES_DB=db_native \
-  -p 5432:5432 \
-  -d postgres:13
-```
-
 Build the Spring Boot application as a native GraalVM image:
 
 ```bash
@@ -36,7 +25,7 @@ Build the Spring Boot application as a native GraalVM image:
 Run the native image:
 
 ```bash
-docker run --name spring-native-graalvm-demo -p 8080:8080 spring-native-graalvm-demo:1.0.0
+docker-compose up -d
 ```
 
 Call the unauthenticated application REST endpoint:

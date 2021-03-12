@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  db-native:
+    image: "postgres:13"
+    container_name: "db-native"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=db_native
+  catalog-service:
+    image: "spring-native-graalvm-demo:1.0.0"
+    container_name: "spring-native-graalvm-demo"
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_R2DBC_URL=r2dbc:postgresql://db-native:5432/db_native
